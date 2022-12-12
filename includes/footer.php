@@ -1,10 +1,6 @@
-<footer>
-
-</footer>
-<script>
-    humburger = document.querySelector(".hamburger");
-    hamburger.onclick = function() {
-        navBar = document.querySelector(".nav-bar");
-        navBar.classList.toggle("active");
-    }
-</script>
+    <footer>
+        <div >
+                <button class="github" style="width: 100px;"><a href="#">Lien Github</a></button>
+        </div>    
+    </footer>
+    <script src="js.js"></script>
