@@ -2,7 +2,7 @@
             $servername = 'localhost';
             $username = 'root';
             $password_b = '';
-            $database = 'moduleconnexion';
+            $database = 'reservationsalles';
 
             // Connexion plesk
             // $servername = 'localhost:3306';

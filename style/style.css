@@ -59,7 +59,6 @@ body{
 
 /* les buttons */
 .btn{
-    /* background-color: white; */
     font-weight: bold;
     padding: 3px 5px;
     border-radius: 30px;
@@ -68,11 +67,9 @@ body{
     color: red;
 }
 .btn a{
-    /* background-color: white; */
     color: black;
 }
 .btn li a{
-    /* background-color: white; */
     color: black;
 }
 
@@ -84,41 +81,15 @@ footer{
     align-items: center;
 }
 
-.admin_tabl{
-    /* backdrop-filter: sepia(90%); */
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 30%;
-    margin-left: 35%;
-    padding: 10px 25px;
-    color: black;
-    font-size: 20px;
 
-}
-.admin_tabl h3{
-    padding: 30px 0;
-    color: white;
-}
-.admin_tabl thead th{
-    border: 2px white solid;
-    padding: 4px;
-    color: white;
-}
-.admin_tabl tbody td{
-    border: 2px white solid;
-    padding: 4px;
-}
-.bienvenue{
+/* .bienvenue{
     
     margin-top: 10%;
     font-size: 70px;
     transform: translateX(30%);
     transition: transform 1.3s ease-in;
     font: bold;
-}
+} */
 @media screen and (max-width: 1024px){
 .nav-links{
     display: flex;
