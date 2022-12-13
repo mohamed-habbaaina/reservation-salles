@@ -14,13 +14,19 @@ body{
     background-image: url('../img/index.jpg');
 }
 
+/* main index */
+.main_index{
+    height: 84vh;
+}
+
+
 .navbar{
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     min-height: 8vh;
-    background-color: rgb(37, 82, 82);
+    background-color: rgb(52, 61, 60);
 }
 .logo{
     color: white;
@@ -50,15 +56,34 @@ body{
     background-color: white;
     margin: 5px;
 }
-.github{
-margin: 42% 0 0 9%;
-color: rgb(37, 82, 82);
-background-color: white;
-padding: 10px;
-border-radius: 20px;
-font-size: large;
-font-weight: bold;
+
+/* les buttons */
+.btn{
+    /* background-color: white; */
+    font-weight: bold;
+    padding: 3px 5px;
+    border-radius: 30px;
 }
+.btn a:hover{
+    color: red;
+}
+.btn a{
+    /* background-color: white; */
+    color: black;
+}
+.btn li a{
+    /* background-color: white; */
+    color: black;
+}
+
+/* footer */
+footer{
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .admin_tabl{
     /* backdrop-filter: sepia(90%); */
     backdrop-filter: blur(10px);
@@ -100,10 +125,7 @@ font-weight: bold;
     justify-content: space-around;
     width: 65%;
 }
-.github{
-    margin: 25% 0 0 20%;
 
-}
   
 }
 @media screen and (max-width: 768px){
@@ -129,9 +151,6 @@ overflow: hidden;
 }
 .nav-active{
     transform: translateX(0%);
-}
-.github{
-    margin: 50% 0% 0 14%;
 }
 
 }
