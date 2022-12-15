@@ -6,6 +6,7 @@
                 <ul class="nav-links">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="planing.php">Planing</a></li>
+                    <li><a href="profil.php">Profil</a></li>
                     <button class="btn"><li><a href="reservation-form.php">Reservation</a></li></button>
                     <button class="btn"><li><a href="includes/decconect.php">Déconnexion</a></li></button>
                 </ul>
