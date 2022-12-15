@@ -26,7 +26,11 @@ if (isset($_SESSION['erreur'])){
 <body>
 <?php require 'includes/header.php'; ?>
 <main class="main_index">
-
+<?php
+if (isset($_SESSION['change'])):
+    echo $_SESSION['change'];
+endif;
+?>
 </main>
 <?php require 'includes/footer.php' ?>
 </body>

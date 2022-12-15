@@ -8,6 +8,13 @@ if (isset($_SESSION['login'])){
     $login = $_SESSION['login'];
     $id = $_SESSION['id'];
 
+    for ($i=0; $i < 7 ; $i++) { 
+        for ($j=0; $j < 11; $j++) { 
+
+            // last sunday
+
+        }
+    }
 
 //  strtotime   
 }
