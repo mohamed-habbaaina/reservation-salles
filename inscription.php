@@ -2,6 +2,7 @@
 
 -->
 <?php
+session_start();
 //  verifier que l'utilisateur avalider le formulaire. 
 if (isset($_POST['submit'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['username'])));

@@ -20,31 +20,45 @@ if (isset($_GET['submit'])):
         // if ($_GET['heure_d'] >= 08 && $_GET['heure_f'] <= 19):
 
         // var_dump($_GET);
+
+
         //  création date debut et fin.
         $debut = $date . ' ' . $_GET['heure_d'];
         $fin = $date . ' ' . $_GET['heure_f'];
 
+        // echo $debut . '<br>' . $fin . '<br>';
+
+        $debut_veri_input = strtotime($debut);
+        $fin_veri_input = strtotime($fin);
+        // echo $debut_veri_input . '<br>' . $fin_veri_input;
+
+            
         //  connexion DB
         require 'includes/connect.php';
 
-        $requ_select = $connection->query("SELECT `debut`, `fin` FROM `reservations`");
+        $requ_select = $connection->query("SELECT `debut`, `fin` FROM `reservations`;" );
+       
+        $dispo = true;  // creation dune variable pour check la disponibilité.
+        while ($assoc = $requ_select->fetch_assoc()):
+            // var_dump($assoc);
 
-        $rst_select = $requ_select->fetch_all();
-        var_dump($rst_select);
+            //  Transformé les dates de string à int méthode "strtotime" pour pouvoirs comparé.
+            $debut_veri_db = strtotime($assoc['debut']);
+            $fin_veri_db = strtotime($assoc['fin']);
 
-        //     if ($debut >= $fin):
-        //         echo 'supper';
-        //     else: echo 'infer';
-        // endif;
+            // Vérification que le créneau est disponible 
+            //  les deux dates de début et de fin n'est pas dans l'intervalle de la réservation
+            //  + les créneaux reservé n'est pas dans le crénau demandé(premirère condition). 
+            if (($debut_veri_input <= $debut_veri_db && $fin_veri_input >= $fin_veri_db) || ($debut_veri_input >= $debut_veri_db && $debut_veri_input <= $fin_veri_db) || ($fin_veri_input >= $debut_veri_db && $fin_veri_input <= $fin_veri_db)):
+                 $dispo = false;
+                 $err_occup = 'creneau deja reservé';   //  à afficher
+            endif;
 
+        endwhile;
+        if ($dispo === true):
+            $requ_inser = $connection->query("INSERT INTO `reservations` (`titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES ('$titre', '$description', '$debut', '$fin', '$id');");
+        endif;
 
-        // var_dump($debut);
-        // echo '<br>';
-        // var_dump($fin);
-
-        //$requ_inser = $connection->query("INSERT INTO `reservations` (`titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES ('$titre', '$description', '$debut', '$fin', '$id');");
-         echo 'connect';
-            else: $err_tim = 'ouverture entre 8 et 19h';
         endif;
     else:
         $err_rempl = 'remplire';
@@ -69,7 +83,10 @@ if (isset($_GET['submit'])):
             endif;
             if (isset($err_tim)):
                 echo $err_tim;
-            endif;  
+            endif;
+            if (isset($err_occup)):
+                echo $err_occup;
+            endif;
             ?></p>
             <h1>Formulaire de réservation</h1>
             <p>Utilisateur: <?= $login; ?></p>

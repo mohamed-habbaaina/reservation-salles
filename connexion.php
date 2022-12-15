@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['submit'])){
 
     $login = htmlspecialchars(strip_tags(trim($_POST['username'])));
@@ -26,16 +27,12 @@ if (isset($_POST['submit'])){
                 //  Recuperer le 'id' de l'utilisateur
                 $id = $requ_fetch['id'];
 
-                // echo $id . '  ' . "$login";
-
                 // Création des variables global de session
                 $_SESSION['login'] = $login;
                 $_SESSION['id'] = $id;
 
-                // echo '<br><br><br>' . $_SESSION['login'] . $_SESSION['id'];
-
                 // redirection vers la page 
-                header('location: profil.php');
+                header('location: index.php');
             } else {
                 $err_pw_bd = 'Password Incorecte !';
             }
