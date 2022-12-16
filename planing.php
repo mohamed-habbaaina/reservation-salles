@@ -8,15 +8,15 @@ if (isset($_SESSION['login'])){
     $login = $_SESSION['login'];
     $id = $_SESSION['id'];
 
-    for ($i=0; $i < 7 ; $i++) { 
+    include 'includes/functions.php';
+
+    for ($i=0; $i < 5 ; $i++) { //  Affichage du planning.
+
         for ($j=0; $j < 11; $j++) { 
 
-            // last sunday
 
         }
     }
-
-//  strtotime   
 }
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,19 @@ if (isset($_SESSION['login'])){
 <body>
 <?php require 'includes/header.php'; ?>
 <main class="main_index">
+
+<table>
+    <thead>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 </main>
 <?php require 'includes/footer.php' ?>

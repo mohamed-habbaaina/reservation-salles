@@ -56,7 +56,7 @@ if (isset($_GET['submit'])):
                 // Vérification que le créneau est disponible 
                 //  les deux dates de début et de fin n'est pas dans l'intervalle de la réservation
                 //  + les créneaux reservé n'est pas dans le crénau demandé(premirère condition). 
-                if (($debut_veri_input <= $debut_veri_db && $fin_veri_input >= $fin_veri_db) || ($debut_veri_input >= $debut_veri_db && $debut_veri_input <= $fin_veri_db) || ($fin_veri_input >= $debut_veri_db && $fin_veri_input <= $fin_veri_db)):
+                if (($debut_veri_input <= $debut_veri_db && $fin_veri_input >= $fin_veri_db) || ($debut_veri_input > $debut_veri_db && $debut_veri_input < $fin_veri_db) || ($fin_veri_input > $debut_veri_db && $fin_veri_input < $fin_veri_db)):
                      $dispo = false;
                      $err_occup = 'creneau deja reservé';   //  à afficher
                 endif;

@@ -11,10 +11,22 @@
             //     $err_date = "Nous ne somme pas ouvert le samedi et le dimanche";
             // }
 
-            $date = date('Y-m-d');
-            $date = (int)date('w', strtotime("$date"));
-             if ($date > 0 && $date < 6):
-                echo $date;
-            endif;
-            
+            // $date = date('Y-m-d');
+            // $date = (int)date('w', strtotime("$date"));
+            //  if ($date > 0 && $date < 6):
+            //     echo $date;
+            // endif;
+            // setlocale(LC_TIME, "fr_FR");
+            // $date = date('Y-m-d');
+            // $premierJour = strftime("%A - %d/%M/%Y", strtotime("$date")); 
+            //   
+            // echo "Premier jour de cette semaine est: ", $premierJour;
+// echo strtotime('Monday');
+
+ $i = 3;
+$date = date('Y-m-d');
+$date = date('Y-m-d', strtotime("last monday +$i days", strtotime("$date")));
+echo $date;
+
+
 ?>

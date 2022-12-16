@@ -11,3 +11,10 @@ function DateValid($date){
     endif;
 }
 
+//  Return le jour de la semaine 0 -> Lundi, 4 -> Mercrudi ($i=0 , $i < 5 pour l'affichage).
+function DayWeek($date, $jours){
+    setlocale(LC_TIME, 'fr_FR');
+    $date = date('Y-m-d');
+    $date = date('Y-m-d', strtotime("last monday +$jours days", strtotime("$date")));
+    return $date;
+}
