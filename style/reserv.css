@@ -1,0 +1,22 @@
+main{
+    width: 100vw;
+    height: 84vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main div{
+    display: block;
+}
+main div h2{
+    margin-bottom: 30px;
+}
+.tab_res{
+    border: 2px black solid;
+    padding: 5px;
+    font-size: 22px;
+}
+.tab_res td{
+    border: 2px black solid;
+    padding: 8px;
+}
