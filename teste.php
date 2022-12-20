@@ -23,10 +23,14 @@
             // echo "Premier jour de cette semaine est: ", $premierJour;
 // echo strtotime('Monday');
 
- $i = 3;
-$date = date('Y-m-d');
-$date = date('Y-m-d', strtotime("last monday +$i days", strtotime("$date")));
-echo $date;
+//  $i = 3;
+// $date = date('Y-m-d');
+// $date = date('Y-m-d', strtotime("last monday +$i days", strtotime("$date")));
+// echo $date;
+// $tab_jours = ['', 'Lundi', 'Mardi', '']
+$date = new DateTime();
+
+echo $date->format('Y-m-d') . "\n";
 
 
-?>
+

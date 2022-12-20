@@ -1,23 +1,37 @@
 <?php
 session_start();
+$days = ['Samedi', 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
 if (!isset($_SESSION['login'])){
     $_SESSION['erreur'] = "Erreur de Connexion";
     header('location: index.php');
 }
-if (isset($_SESSION['login'])){ 
-    $login = $_SESSION['login'];
-    $id = $_SESSION['id'];
+// if (isset($_SESSION['login'])){ 
+//     $login = $_SESSION['login'];
+//     $id = $_SESSION['id'];
 
+    //include 'includes/connect.php';
     include 'includes/functions.php';
 
-    for ($i=0; $i < 5 ; $i++) { //  Affichage du planning.
+    // Requette pour recupérer la data.
 
-        for ($j=0; $j < 11; $j++) { 
+    // $requ_selec_all = $connection->query("SELECT login, titre, debut, fin FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur;");
 
+    // while ($requ_fetch_ass = $requ_selec_all->fetch_assoc()):
+    //     echo '<pre>';
+    //     print_r($requ_fetch_ass);
+    //     echo '</pre>';
+    // endwhile;
+    // die(); 
+    $date = date('Y-m-d');
+    // for ($i=0; $i < 5 ; $i++) { //  Affichage du planning.
+    //     echo DayWeek($date, $i) . '<br>';
+    //     for ($j=0; $j < 11; $j++) {
+    //         echo ($j+8) . ':' . '00' . ' ';
 
-        }
-    }
-}
+    //     }
+    // }
+    // die;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,15 +48,29 @@ if (isset($_SESSION['login'])){
 
 <table>
     <thead>
-        <th></th>
+        <tr>
+            <th>heures\dates</th>
+            <?php
+            foreach ($days as $day) {?>
+            <th><?= $day;?></th>
+            <?php }?>
+        </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
+            <?php
+                for ($h= 8; $h < 19; $h++){
 
-            </td>
+                echo '<tr><td>' . "$h H" . '-' . $h+1 . ' H' . '</td>';
+                
+                for ($i=0; $i < 7; $i++){
+                    echo '<td>' . date("Y-m-d", mktime($h, 0, 0, 0, 0, 2022)) . '</td>';
+                }
+            ?>
         </tr>
+        <?php }?>
+
     </tbody>
+
 </table>
 
 </main>
