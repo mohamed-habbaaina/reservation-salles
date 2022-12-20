@@ -1,37 +1,15 @@
 <?php
 session_start();
-$days = ['Samedi', 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
+$days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 if (!isset($_SESSION['login'])){
     $_SESSION['erreur'] = "Erreur de Connexion";
     header('location: index.php');
 }
-// if (isset($_SESSION['login'])){ 
 //     $login = $_SESSION['login'];
 //     $id = $_SESSION['id'];
 
-    //include 'includes/connect.php';
+    include 'includes/connect.php';
     include 'includes/functions.php';
-
-    // Requette pour recupérer la data.
-
-    // $requ_selec_all = $connection->query("SELECT login, titre, debut, fin FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur;");
-
-    // while ($requ_fetch_ass = $requ_selec_all->fetch_assoc()):
-    //     echo '<pre>';
-    //     print_r($requ_fetch_ass);
-    //     echo '</pre>';
-    // endwhile;
-    // die(); 
-    $date = date('Y-m-d');
-    // for ($i=0; $i < 5 ; $i++) { //  Affichage du planning.
-    //     echo DayWeek($date, $i) . '<br>';
-    //     for ($j=0; $j < 11; $j++) {
-    //         echo ($j+8) . ':' . '00' . ' ';
-
-    //     }
-    // }
-    // die;
-// }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,12 +23,32 @@ if (!isset($_SESSION['login'])){
 <body>
 <?php require 'includes/header.php'; ?>
 <main class="main_index">
-
+<?php
+$week = 'this';
+?>
+<button type="submit" name="last">Last</button>
+<button type="submit" name="reset">Reset</button>
+<button type="submit" name="next">Next</button>
+<?php
+// if (isset($_GET['submit'])):
+    if (isset($_GET['last'])):
+        $week = 'last';
+    endif;
+    if (isset($_GET['next'])):
+        $week = 'next';
+    endif;
+    if (isset($_GET['reset'])):
+        $week = 'this';
+    endif;
+// endif;
+?>
+    <!-- L'affichage du planning -->
 <table>
     <thead>
         <tr>
             <th>heures\dates</th>
             <?php
+            //  Les jours
             foreach ($days as $day) {?>
             <th><?= $day;?></th>
             <?php }?>
@@ -58,14 +56,40 @@ if (!isset($_SESSION['login'])){
     </thead>
     <tbody>
             <?php
+       
+                //  les créneaux entre 08 h et 19 h.
                 for ($h= 8; $h < 19; $h++){
 
+                    //  recupérer la date du lundi de cette semaine '$week' pour l'affichage de la semaine prochaine '$h' pour les créneaux horaires.
+                    $date = date('Y-m-d H:i', strtotime("monday $week week + $h hours "));
+
+                    //  Affichage des heures
                 echo '<tr><td>' . "$h H" . '-' . $h+1 . ' H' . '</td>';
                 
-                for ($i=0; $i < 7; $i++){
-                    echo '<td>' . date("Y-m-d", mktime($h, 0, 0, 0, 0, 2022)) . '</td>';
-                }
+                    //  incrémenter les jours de la semaine 
+                for ($i=0; $i < 5; $i++){
+
+                    //  requette pour récupérer la data de la DB WHERE le meme créneau horaire.
+                    $requ_selec_ass = $connection->query("SELECT login, titre, debut, fin FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE debut='$date';");
+
+                    $requ_fetch_ass = $requ_selec_ass->fetch_assoc();
+                    
+                    //  If la DB n'est pas vide on affiche la reservation, sinon on affiche 'Libre'.
+                    if (isset($requ_fetch_ass['debut'])){
+                        echo '<td>' . '<a href="reservation.php">' . $requ_fetch_ass['login'] . '<br>' . $requ_fetch_ass['titre'] . '</a>' . '</td>';
+                        // $_SESSION['debut'] = $requ_fetch_ass['titre'];
+                    } else {
+                        echo '<td>'. 'Libre' . '</td>';}
+
+                        //  incrémenter la date d'un jour.
+                    $date = date('Y-m-d H:i', strtotime("$date +1 days "));
+                } 
+
             ?>
+
+            <!-- Fermé pour les weekend -->
+            <td>Fermé</td>
+            <td>Fermé</td>
         </tr>
         <?php }?>
 

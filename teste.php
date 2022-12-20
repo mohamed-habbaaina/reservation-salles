@@ -28,9 +28,13 @@
 // $date = date('Y-m-d', strtotime("last monday +$i days", strtotime("$date")));
 // echo $date;
 // $tab_jours = ['', 'Lundi', 'Mardi', '']
-$date = new DateTime();
+// $date = new DateTime();
 
-echo $date->format('Y-m-d') . "\n";
+// echo $date->format('Y-m-d') . "\n";
+$i = 6;
+$date = date('Y-m-d');
+$date = date('Y-m-d H:i', strtotime("monday this week + $i hours " ,strtotime("$date")));
+echo $date;
 
 
 
