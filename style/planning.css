@@ -1,0 +1,31 @@
+main{
+    width: 100vw;
+    height: 84vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main div{
+    display: block;
+}
+
+.tab_btn{
+    margin: 20px 0;
+
+}
+.tab_plani{
+    border: 2px black solid;
+    padding: 4px;
+}
+.tab_plani th, td{
+    border: 2px black solid;
+    padding: 8px;
+    width: 8vw;
+    height: 5vh;
+    text-align: center;
+}
+.tab_plani th{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
