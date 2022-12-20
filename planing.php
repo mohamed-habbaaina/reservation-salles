@@ -70,13 +70,15 @@ $week = 'this';
                 for ($i=0; $i < 5; $i++){
 
                     //  requette pour récupérer la data de la DB WHERE le meme créneau horaire.
-                    $requ_selec_ass = $connection->query("SELECT login, titre, debut, fin FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE debut='$date';");
+                    $requ_selec_ass = $connection->query("SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur WHERE debut='$date';");
 
                     $requ_fetch_ass = $requ_selec_ass->fetch_assoc();
                     
                     //  If la DB n'est pas vide on affiche la reservation, sinon on affiche 'Libre'.
                     if (isset($requ_fetch_ass['debut'])){
-                        echo '<td>' . '<a href="reservation.php">' . $requ_fetch_ass['login'] . '<br>' . $requ_fetch_ass['titre'] . '</a>' . '</td>';
+                        // $id = $requ_fetch_ass['id'];
+                        // echo $id;
+                        echo '<td>' . '<a href="reservation.php?id=' . $requ_fetch_ass['id'] . '">' . $requ_fetch_ass['login'] . '<br>' . $requ_fetch_ass['titre'] . '</a>' . '</td>';
                         // $_SESSION['debut'] = $requ_fetch_ass['titre'];
                     } else {
                         echo '<td>'. 'Libre' . '</td>';}
