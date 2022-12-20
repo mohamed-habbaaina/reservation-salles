@@ -115,7 +115,7 @@ if (isset($_GET['submit'])):
             <!-- donnée la possibiliter pour une semaine de réservation seulement -->
             <label for="date">Date :</label>
 
-            <input type="date" name="date"  min="<?= date('Y-m-d'); ?>" value="<?= date('Y-m-d'); ?>" max="<?= date('Y-m-d', strtotime("+7 day", time())); ?>" value="<?= date('Y-m-d'); ?>" required>
+            <input type="date" name="date"  min="<?= date('Y-m-d' , strtotime("-14 day", time())); ?>" value="<?= date('Y-m-d'); ?>" max="<?= date('Y-m-d', strtotime("+14 day", time())); ?>" value="<?= date('Y-m-d'); ?>" required>
 
             <!-- <input type="date" name="date" required> -->
 
