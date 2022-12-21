@@ -20,7 +20,7 @@ if (isset($_POST['submit'])){
 
             //  connexion a la base de données.
             require 'includes/connect.php';
-            echo 'connect';
+
             // requette pour recupier les login et pour la verification.
             $req_login = $connection->query("SELECT * FROM `utilisateurs` WHERE login='$login';");
             $login_verif = mysqli_num_rows($req_login);
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])){
             <label for="co-password">Confirmer Password</label>
             <input type="password" name="co_password" placeholder="Confirmer Votre Password">
 
-            <button type="submit" name="submit">Valider</button>
+            <button type="submit" name="submit" class="btn_connect">Valider</button>
         </form>
 
     </div>
