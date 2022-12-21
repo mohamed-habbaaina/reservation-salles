@@ -7,7 +7,6 @@ const navSlide = () => {
         //  Toggel nav
         nav.classList.toggle('nav-active');
 
-
     });
     }
 
