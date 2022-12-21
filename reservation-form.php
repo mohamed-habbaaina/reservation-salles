@@ -74,8 +74,8 @@ if (isset($_GET['submit'])):
 <body>
 <?php require 'includes/header.php'; ?>
 <main>
-    <div class="form">
-        <form action="#" method="GET">
+    <div>
+        <div>
             <p class="errs">
             <?php   // L'affichage des erreurs.
             if (isset($mess_inser)):
@@ -89,7 +89,9 @@ if (isset($_GET['submit'])):
             endif;
             ?></p>
             <h1>Formulaire de réservation</h1>
-            <p>Utilisateur: <?= $login; ?></p>
+            <p class="log">Utilisateur: <?= $login; ?></p>
+        </div>
+        <form action="#" method="GET" class="form-r">
 
             <label for="titre">Titre :</label>
             <input type="text" name="titre" required>
@@ -108,7 +110,7 @@ if (isset($_GET['submit'])):
             <label for="description">Description</label>
             <input type="textarea" name="description" required>
 
-            <input type="submit" name="submit" value="Valider" class="btn">
+            <button type="submit" name="submit" class="btn_connect">Valider</button>
         </form>
     </div>
 </main>
