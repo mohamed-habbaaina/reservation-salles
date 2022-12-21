@@ -58,13 +58,13 @@ if (isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/connection.css">
+    <link rel="stylesheet" href="style/connect.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
 </head>
 <body>
 <?php require 'includes/header.php'; ?>
-<main style="min-height: 85vh;">
+<main>
     <div class="form">
 
         <p class="errs"><?php if (isset($err_don)){
@@ -88,11 +88,11 @@ if (isset($_POST['submit'])){
         <label for="con_password">Confermer Votre Password</label>
         <input type="password" name="con_password" placeholder="Cnfermer Votre Password">
 
-        <button type="submit" name="submit">Valider</button>
+        <button type="submit" name="submit" class="btn_connect">Valider</button>
 
         </form>
     </div>
-<?php require 'includes/footer.php'; ?>
 </main>
+<?php require 'includes/footer.php'; ?>
 </body>
 </html>

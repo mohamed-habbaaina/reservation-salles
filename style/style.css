@@ -17,6 +17,9 @@ body{
 /* main index */
 .main_index{
     height: 84vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

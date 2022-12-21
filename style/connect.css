@@ -1,13 +1,17 @@
 
 .errs{
-    
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+    color: rgb(238, 94, 37);
+
 }
 main{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 84vh;
-    width: 84%;
+    width: 100VW;
 }
 h1{
     padding-bottom: 20px;
@@ -23,20 +27,20 @@ input{
     border-radius: 8px;
 
 }
-#submit {
+.btn_connect {
     background-color: rgb(37, 82, 82);
     color: white;
     font-size: 24px;
     padding: 3px 0;
+    border-radius: 30px;
+    margin-top: 30px;
+
+}
+.btn_connect:hover{
+    color: red;
 }
 .form_conn{
-backdrop-filter: sepia(90%);
+/* backdrop-filter: sepia(90%); */
 padding: 30px;
 border-radius: 25px;
-}
-#erreur{
-    padding: 10px;
-    font-weight: bold;
-    color: rgb(238, 94, 37);
-    
 }
