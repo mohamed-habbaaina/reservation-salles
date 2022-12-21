@@ -5,7 +5,30 @@ main{
     justify-content: center;
     align-items: center;
 }
-.form form{
-    /* flex-direction: column; */
+main div{
+display: block;
 }
+.log{
+    margin: 20px 0;
+}
+.form-r input{
+    display: block;
+    width: 20vw;
+    margin: 5px 0;
+    padding: 5px 0;
+    border-radius: 8px;
+}
+.btn_connect {
+    background-color: rgb(37, 82, 82);
+    color: white;
+    font-size: 24px;
+    padding: 3px 0;
+    border-radius: 30px;
+    margin: 30px auto;
+    width: 20vw;
 
+
+}
+.btn_connect:hover{
+    color: red;
+}
