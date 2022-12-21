@@ -85,7 +85,7 @@ if (isset($_POST['submit'])){
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Entre Votre Password">
 
-            <button type="submit" name="submit">Valider</button>
+            <button type="submit" name="submit" class="btn_connect">Valider</button>
         </form>
 
     </div>
